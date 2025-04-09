@@ -929,23 +929,23 @@ export const AccountHeader: React.FC<{
 
                 <NavLink
                   exact
-                  to={`/@${account.acct}/following`}
-                  title={intl.formatNumber(account.following_count)}
-                >
-                  <ShortNumber
-                    value={account.following_count}
-                    renderer={FollowingCounter}
-                  />
-                </NavLink>
-
-                <NavLink
-                  exact
                   to={`/@${account.acct}/followers`}
                   title={intl.formatNumber(account.followers_count)}
                 >
                   <ShortNumber
                     value={account.followers_count}
                     renderer={FollowersCounter}
+                  />
+                </NavLink>
+
+                <NavLink
+                  exact
+                  to={`/@${account.acct}/following`}
+                  title={intl.formatNumber(account.following_count)}
+                >
+                  <ShortNumber
+                    value={account.following_count}
+                    renderer={FollowingCounter}
                   />
                 </NavLink>
               </div>
