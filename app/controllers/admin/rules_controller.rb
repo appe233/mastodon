@@ -7,7 +7,7 @@ module Admin
     def index
       authorize :rule, :index?
 
-      @rules = Rule.ordered
+      @rules = Rule.ordered.includes(:translations)
       @rule  = Rule.new
     end
 
@@ -23,7 +23,7 @@ module Admin
       if @rule.save
         redirect_to admin_rules_path
       else
-        @rules = Rule.ordered
+        @rules = Rule.ordered.includes(:translations)
         render :index
       end
     end
