@@ -11,7 +11,7 @@ jobs:
   compute-suffix:
     runs-on: ubuntu-latest
     # This is only allowed to run if:
-    # - the PR branch is in the `mastodon/mastodon` repository
+    # - the PR branch is in the `mastodon/mastodon` repository (it should be appe233/mastodon now)
     # - the PR is not a draft
     # - the PR has the "build-image" label
     if: ${{ github.event.pull_request.head.repo.full_name == github.repository && !github.event.pull_request.draft && contains(github.event.pull_request.labels.*.name, 'build-image') }}
@@ -33,7 +33,7 @@ jobs:
     with:
       file_to_build: Dockerfile
       push_to_images: |
-        ghcr.io/mastodon/mastodon
+        ghcr.io/appe233/mastodon
       version_metadata: ${{ needs.compute-suffix.outputs.metadata }}
       flavor: |
         latest=auto
@@ -48,7 +48,7 @@ jobs:
     with:
       file_to_build: streaming/Dockerfile
       push_to_images: |
-        ghcr.io/mastodon/mastodon-streaming
+        ghcr.io/appe233/mastodon-streaming
       version_metadata: ${{ needs.compute-suffix.outputs.metadata }}
       flavor: |
         latest=auto
